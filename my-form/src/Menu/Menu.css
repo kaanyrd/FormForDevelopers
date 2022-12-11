@@ -1,0 +1,10 @@
+/* TOP NAVLINKS CSS STYLE STARTING */
+.navLinks{
+    display: flex;
+    list-style-type: none;
+}
+.navLinks,li{
+    /* margin-right: 1rem; */
+    column-gap: 1rem;
+}
+/* TOP NAVLINKS CSS STYLE ENDING */
