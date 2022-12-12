@@ -14,7 +14,7 @@ function Menu() {
                     </div>
                     <div>
                         <li>
-                            <Link to="/form">Form</Link>
+                            <Link to="/newform">Form</Link>
                         </li>
                     </div>
                     <div>
