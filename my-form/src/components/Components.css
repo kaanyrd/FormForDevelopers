@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.genderChoose{
+    padding: 1rem;
+}
+.genderChoose,label{
+    padding-left: 1rem;
+    justify-content: center;
+}

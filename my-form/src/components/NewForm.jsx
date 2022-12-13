@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFormik } from "formik"
+import "./Components.css"
 
 
 
@@ -30,125 +31,135 @@ function NewForm() {
     }
   })
   return (
-    <div>
-      <form onSubmit={handleSubmit} onReset={handleReset}>
+    <div className='container'>
+      <div className='row'>
+        <div>
+          <div>
+            <form onSubmit={handleSubmit} onReset={handleReset}>
 
-        {/* NAME */}
-        <div>
-          <div><label htmlFor="firstName">Name</label></div>
-          <div><input value={values.firstName} id="firstName" name="firstName" onChange={handleChange("firstName")} disabled={isSubmitting} /></div>
-        </div>
-        {/* LASTNAME */}
-        <div>
-          <div><label htmlFor="lastName">Last Name</label></div>
-          <div><input value={values.lastName} id="lastName" name="lastName" onChange={handleChange("lastName")} disabled={isSubmitting} /></div>
-        </div>
-        {/* GENDER */}
-        <div>
-          <span>Male</span>
-          <input type="radio" name='gender' value="male" onChange={handleChange("gender")} checked={values.gender === "male"} />
+              {/* NAME */}
+              <div>
+                <div><label htmlFor="firstName">Name</label></div>
+                <div><input className='form-control' value={values.firstName} id="firstName" name="firstName" onChange={handleChange("firstName")} disabled={isSubmitting} /></div>
+              </div>
+              {/* LASTNAME */}
+              <div>
+                <div><label htmlFor="lastName">Last Name</label></div>
+                <div><input className='form-control' value={values.lastName} id="lastName" name="lastName" onChange={handleChange("lastName")} disabled={isSubmitting} /></div>
+              </div>
+              {/* GENDER */}
+              <div className='genderChoose'>
+                <div><label htmlFor="gender">Gender</label></div>
+                <div>
+                <span><label htmlFor="male">Male</label></span>
+                <input type="radio" name='gender' value="male" onChange={handleChange("gender")} checked={values.gender === "male"} />
 
-          <span>Female</span>
-          <input type="radio" name='gender' value="female" onChange={handleChange("gender")} checked={values.gender === "female"} />
-        </div>
-        {/* EMAIL */}
-        <div>
-          <div><label htmlFor="email">E-mail</label></div>
-          <div><input value={values.email} id="email" name="email" onChange={handleChange("email")} disabled={isSubmitting} /></div>
-        </div>
-        {/* DATE */}
-        <div>
-          <div><label htmlFor="birthOfDate">Birth Of Date</label></div>
-          <div><input value={values.birthOfDate} type="date" id='birthOfDate' name='birthOfDate' onChange={handleChange("birthOfDate")} disabled={isSubmitting} /></div>
-        </div>
-        {/* POZITION */}
-        <div>
-          <label htmlFor="group">Pozition</label>
-          <div>
-            <input type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting} 
-            checked={!!values?.pozition?.includes("Back-end")}/>
-            <label htmlFor="Back-end">Back-End</label>
+                <span><label htmlFor="female">Female</label></span>
+                <input type="radio" name='gender' value="female" onChange={handleChange("gender")} checked={values.gender === "female"} />
+                </div>
+              </div>
+              {/* EMAIL */}
+              <div>
+                <div><label htmlFor="email">E-mail</label></div>
+                <div><input className='form-control' value={values.email} id="email" name="email" onChange={handleChange("email")} disabled={isSubmitting} /></div>
+              </div>
+              {/* DATE */}
+              <div>
+                <div><label htmlFor="birthOfDate">Birth Of Date</label></div>
+                <div><input className='form-control' value={values.birthOfDate} type="date" id='birthOfDate' name='birthOfDate' onChange={handleChange("birthOfDate")} disabled={isSubmitting} /></div>
+              </div>
+              {/* POZITION */}
+              <div className='pozition'>
+                <div><label htmlFor="group">Pozition</label></div>
+                <div>
+                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Back-end")} />
+                  <label htmlFor="Back-end">Back-End</label>
+                </div>
+                <div>
+                  <input id='Front-end' type="checkbox" name='pozition' value="Front-end" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Front-end")} />
+                  <label htmlFor="Front-end">Front-End</label>
+                </div>
+                <div>
+                  <input id='Mobile' type="checkbox" name='pozition' value="Mobile" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Mobile")} />
+                  <label htmlFor="Mobile">Mobile</label>
+                </div>
+                <div>
+                  <input id='Data' type="checkbox" name='pozition' value="Data" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Data")} />
+                  <label htmlFor="Data">Data</label>
+                </div>
+                <div>
+                  <input id='Game' type="checkbox" name='pozition' value="Game" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Game")} />
+                  <label htmlFor="Game">Game</label>
+                </div>
+              </div>
+              {/* SCHOOL */}
+              <div id='schoolChoose'>
+                <div><label htmlFor="school">School</label></div>
+                <div><select className='form-control'  name="school" id="school" value={values.school} onChange={handleChange("school")} disabled={isSubmitting}>
+                  <option value="not specified">-</option>
+                  <option value="IstanbulAydinUniversity">Istanbul Aydin University</option>
+                  <option value="IstanbulTechnicalUniversity">Istanbul Technical University</option>
+                  <option value="GalatasarayUniversity">Galatasaray University</option>
+                  <option value="NamikKemalUniversity">Namik Kemal University</option>
+                  <option value="BahcesehirUniversity">Bahcesehir University</option>
+                </select></div>
+              </div>
+              {/* DEPARTMENT */}
+              <div>
+                <div><label htmlFor="department">Department</label></div>
+                <div><select className='form-control' name="department" id="department" onChange={handleChange("department")} value={values.department} disabled={isSubmitting}>
+                  <option value="not specified">-</option>
+                  <option value="SoftwareEngineering">Software Engineering</option>
+                  <option value="ComputerEngineering">Computer Engineering</option>
+                  <option value="SoftwareDeveloper">Software Developer</option>
+                  <option value="InformationTechnology">Information Technology</option>
+                </select></div>
+              </div>
+              {/* SALARY */}
+              <div>
+                <div><label htmlFor="salary">Salary</label></div>
+                <div><select className='form-control' name="salary" id="salary" onChange={handleChange("salary")} value={values.salary} disabled={isSubmitting}>
+                  <option value="not specified">-</option>
+                  <option value="6.000-10.000 TL">6.000-10.000 TL</option>
+                  <option value="10.000-15.000 TL">10.000-15.000 TL</option>
+                  <option value="15.000-22.000 TL">15.000-22.000 TL</option>
+                  <option value="+ 22.000 TL">+22.000 TL</option>
+                </select></div>
+              </div>
+              {/* CHALLENGES */}
+              <div>
+                <div><label htmlFor="challenges">Challenges</label></div>
+                <div><select className='form-control' name="challenges" id="challenges" onChange={handleChange("challenges")} value={values.challenges} disabled={isSubmitting}>
+                  <option value="not specified">-</option>
+                  <option value="Couldn't find any internship">Couldn't find any internship</option>
+                  <option value="Regret your school department choice">Regret your school department choice</option>
+                  <option value="Inability to get rewarded for hard work">Inability to get rewarded for hard work</option>
+                  <option value="Difficulty in software partition selection process">Difficulty in software partition selection process</option>
+                  <option value="Difficulty in software learning process">Difficulty in software learning process</option>
+                  <option value="Other">Other...</option>
+                </select></div>
+              </div>
+              {/* CHALLENGES COMMENT */}
+              <div>
+                <div><label htmlFor="comments">Comments About Challenges({values.challenges})</label></div>
+                <div><textarea name="comments" id="comments" onChange={handleChange("comments")} value={values.comments} disabled={isSubmitting} placeholder="Any Challenge..."></textarea></div>
+              </div>
+              {/* HELP */}
+              <div>
+                <div><label htmlFor="help">Would you like to get help with this? How?</label></div>
+                <div><textarea  name="help" id="help" onChange={handleChange("help")} value={values.help} disabled={isSubmitting} placeholder="Yes, I need help..."></textarea></div>
+              </div>
+              {/* BUTTONS */}
+              <div>
+                <button type='submit'>Send Form</button>
+                <button type='reset'>Rest Form</button>
+                <button type='button' className='btn btn-danger'>Click</button>
+              </div>
+            </form>
           </div>
-          <div>
-            <input type="checkbox" name='pozition' value="Front-end" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Front-end")}/>
-            <label htmlFor="Front-end">Front-End</label>
-          </div>
-          <div>
-            <input type="checkbox" name='pozition' value="Mobile" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Mobile")}/>
-            <label htmlFor="Mobile">Mobile</label>
-          </div>
-          <div>
-            <input type="checkbox" name='pozition' value="Data" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Data")}/>
-            <label htmlFor="Data">Data</label>
-          </div>
-          <div>
-            <input type="checkbox" name='pozition' value="Game" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Game")}/>
-            <label htmlFor="Game">Game</label>
-          </div>
         </div>
-        {/* SCHOOL */}
-        <div>
-          <div><label htmlFor="school">School</label></div>
-          <div><select name="school" id="school" value={values.school} onChange={handleChange("school")} disabled={isSubmitting}>
-            <option value="not specified">-</option>
-            <option value="IstanbulAydinUniversity">Istanbul Aydin University</option>
-            <option value="IstanbulTechnicalUniversity">Istanbul Technical University</option>
-            <option value="GalatasarayUniversity">Galatasaray University</option>
-            <option value="NamikKemalUniversity">Namik Kemal University</option>
-            <option value="BahcesehirUniversity">Bahcesehir University</option>
-          </select></div>
-        </div>
-        {/* DEPARTMENT */}
-        <div>
-          <div><label htmlFor="department">Department</label></div>
-          <div><select name="department" id="department" onChange={handleChange("department")} value={values.department} disabled={isSubmitting}>
-            <option value="not specified">-</option>
-            <option value="SoftwareEngineering">Software Engineering</option>
-            <option value="ComputerEngineering">Computer Engineering</option>
-            <option value="SoftwareDeveloper">Software Developer</option>
-            <option value="InformationTechnology">Information Technology</option>
-          </select></div>
-        </div>
-        {/* SALARY */}
-        <div>
-          <div><label htmlFor="salary">Salary</label></div>
-          <div><select name="salary" id="salary" onChange={handleChange("salary")} value={values.salary} disabled={isSubmitting}>
-            <option value="not specified">-</option>
-            <option value="6.000-10.000 TL">6.000-10.000 TL</option>
-            <option value="10.000-15.000 TL">10.000-15.000 TL</option>
-            <option value="15.000-22.000 TL">15.000-22.000 TL</option>
-            <option value="+ 22.000 TL">+22.000 TL</option>
-          </select></div>
-        </div>
-        {/* CHALLENGES */}
-        <div>
-          <div><label htmlFor="challenges">Challenges</label></div>
-          <div><select name="challenges" id="challenges" onChange={handleChange("challenges")} value={values.challenges} disabled={isSubmitting}>
-            <option value="not specified">-</option>
-            <option value="Couldn't find any internship">Couldn't find any internship</option>
-            <option value="Regret your school department choice">Regret your school department choice</option>
-            <option value="Inability to get rewarded for hard work">Inability to get rewarded for hard work</option>
-            <option value="Difficulty in software partition selection process">Difficulty in software partition selection process</option>
-            <option value="Difficulty in software learning process">Difficulty in software learning process</option>
-            <option value="Other">Other...</option>
-          </select></div>
-        </div>
-        {/* CHALLENGES COMMENT */}
-        <div>
-          <div><label htmlFor="comments">Comments About Challenges({values.challenges})</label></div>
-          <div><textarea name="comments" id="comments" onChange={handleChange("comments")} value={values.comments} disabled={isSubmitting} placeholder="Any Challenge..."></textarea></div>
-        </div>
-        {/* HELP */}
-        <div>
-          <div><label htmlFor="help">Would you like to get help with this? How?</label></div>
-          <div><textarea name="help" id="help" onChange={handleChange("help")} value={values.help} disabled={isSubmitting} placeholder="Yes, I need help..."></textarea></div>
-        </div>
-        {/* BUTTONS */}
-        <div>
-          <button type='submit'>Send Form</button>
-          <button type='reset'>Rest Form</button>
-        </div>
-      </form>
+      </div>
     </div>
   )
 }
