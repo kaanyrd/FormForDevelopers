@@ -12,7 +12,8 @@ function NewForm() {
       gender: "",
       email: "",
       birthOfDate: "",
-      // pozition: [], 
+      pozition: [],
+      // position: [], 
       school: "",
       department: "",
       salary: "",
@@ -24,7 +25,7 @@ function NewForm() {
     onSubmit: async (values, bag) => {
       await new Promise((r) => setTimeout(r, 2000))
       console.log(values);
-      console.log(bag);
+      // console.log(bag);
       bag.resetForm();
     }
   })
@@ -61,29 +62,30 @@ function NewForm() {
           <div><input value={values.birthOfDate} type="date" id='birthOfDate' name='birthOfDate' onChange={handleChange("birthOfDate")} disabled={isSubmitting} /></div>
         </div>
         {/* POZITION */}
-        {/* <div>
-          <label htmlFor="pozition">Pozition</label>
+        <div>
+          <label htmlFor="group">Pozition</label>
           <div>
-            <input type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting} />
+            <input type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting} 
+            checked={!!values?.pozition?.includes("Back-end")}/>
             <label htmlFor="Back-end">Back-End</label>
           </div>
           <div>
-            <input type="checkbox" name='pozition' value="Front-end" onChange={handleChange("pozition")} disabled={isSubmitting} />
+            <input type="checkbox" name='pozition' value="Front-end" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Front-end")}/>
             <label htmlFor="Front-end">Front-End</label>
           </div>
           <div>
-            <input type="checkbox" name='pozition' value="Mobile" onChange={handleChange("pozition")} disabled={isSubmitting} />
+            <input type="checkbox" name='pozition' value="Mobile" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Mobile")}/>
             <label htmlFor="Mobile">Mobile</label>
           </div>
           <div>
-            <input type="checkbox" name='pozition' value="Data" onChange={handleChange("pozition")} disabled={isSubmitting} />
+            <input type="checkbox" name='pozition' value="Data" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Data")}/>
             <label htmlFor="Data">Data</label>
           </div>
           <div>
-            <input type="checkbox" name='pozition' value="Game" onChange={handleChange("pozition")} disabled={isSubmitting} />
+            <input type="checkbox" name='pozition' value="Game" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Game")}/>
             <label htmlFor="Game">Game</label>
           </div>
-        </div> */}
+        </div>
         {/* SCHOOL */}
         <div>
           <div><label htmlFor="school">School</label></div>
@@ -138,14 +140,9 @@ function NewForm() {
         </div>
         {/* HELP */}
         <div>
-          <div><label htmlFor="help">Would you like to get help with this?</label></div>
+          <div><label htmlFor="help">Would you like to get help with this? How?</label></div>
           <div><textarea name="help" id="help" onChange={handleChange("help")} value={values.help} disabled={isSubmitting} placeholder="Yes, I need help..."></textarea></div>
         </div>
-
-
-
-
-
         {/* BUTTONS */}
         <div>
           <button type='submit'>Send Form</button>
