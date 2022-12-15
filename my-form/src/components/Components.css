@@ -40,6 +40,7 @@ input[type="radio"]:checked+label {
 input[type="radio"]+label {
     padding: 10px 25px;
     border-radius: 20px;
+    
 }
 /* GENDER ENDS */
 
@@ -49,6 +50,6 @@ font-size: 1.1rem;
 font-weight: 700;
 margin-top: 1.1rem;
 }
-/* .schoolOption{
-    text-align: left;
-} */
+#dateIt{
+    width: 17rem;
+}

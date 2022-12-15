@@ -17,7 +17,8 @@ function NewForm() {
       // position: [], 
       school: "",
       department: "",
-      salary: "",
+      // salary: "",
+      debtAmount: "",
       challenges: "",
       comments: "",
       help: "",
@@ -40,7 +41,7 @@ function NewForm() {
               {/* NAME */}
               <div>
                 <div><label className='labelHeader' htmlFor="firstName">Name</label></div>
-                <div><input size="70"  placeholder='Please write your first name...' className='form-control' value={values.firstName} id="firstName" name="firstName" onChange={handleChange("firstName")} disabled={isSubmitting} /></div>
+                <div><input size="70" placeholder='Please write your first name...' className='form-control' value={values.firstName} id="firstName" name="firstName" onChange={handleChange("firstName")} disabled={isSubmitting} /></div>
               </div>
               {/* LASTNAME */}
               <div>
@@ -51,11 +52,11 @@ function NewForm() {
               <div id='genderChoose'>
                 <div><label className='labelHeader' htmlFor="gender">Gender</label></div>
                 <div>
-                <input id='male' type="radio" name='gender' value="male" onChange={handleChange("gender")} checked={values.gender === "male"} />
-                <label htmlFor="male">Male</label>
+                  <input id='male' type="radio" name='gender' value="male" onChange={handleChange("gender")} checked={values.gender === "male"} />
+                  <label htmlFor="male">Male</label>
 
-                <input id='female' type="radio" name='gender' value="female" onChange={handleChange("gender")} checked={values.gender === "female"} />
-                <label htmlFor="female">Female</label>
+                  <input id='female' type="radio" name='gender' value="female" onChange={handleChange("gender")} checked={values.gender === "female"} />
+                  <label htmlFor="female">Female</label>
                 </div>
               </div>
               {/* EMAIL */}
@@ -63,15 +64,76 @@ function NewForm() {
                 <div><label className='labelHeader' htmlFor="email">E-mail</label></div>
                 <div><input placeholder='test@test.com' className='form-control' value={values.email} id="email" name="email" onChange={handleChange("email")} disabled={isSubmitting} /></div>
               </div>
+
+              <div style={{display: "flex"}}>
+                <div className='labelHeader' style={{display: "flex", flexDirection:"column"}}>
+                  <label htmlFor="">Date</label>
+                  <input id='dateIt' type="date" />
+                </div>
+                <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginLeft: "auto", marginRight: "1.5rem"}}>
+                  <label className='labelHeader' htmlFor="">Pozition</label>
+                  <div>
+                  <div>
+                    
+                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Back-end")} />
+                  <label htmlFor="Back-end">Back-End</label>
+                  
+                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Back-end")} />
+                  <label htmlFor="Back-end">Back-End</label>
+                  
+                  
+                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Back-end")} />
+                  <label htmlFor="Back-end">Back-End</label>
+                  </div>
+                  
+                  
+                  <div>
+                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Back-end")} />
+                  <label htmlFor="Back-end">Back-End</label>
+                  
+                  
+                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Back-end")} />
+                  <label htmlFor="Back-end">Back-End</label>
+                  
+                  
+                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Back-end")} />
+                  <label htmlFor="Back-end">Back-End</label>
+
+
+                  </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+              </div>
+
+
+
+
+
+
               {/* DATE */}
-              <div>
+              {/* <div>
                 <div><label className='labelHeader' htmlFor="birthOfDate">Birth Of Date</label></div>
                 <div><input className='form-control' value={values.birthOfDate} type="date" id='birthOfDate' name='birthOfDate' onChange={handleChange("birthOfDate")} disabled={isSubmitting} /></div>
-              </div>
-              {/* POZITION */}
-              <div className='pozition'>
-                <div><label className='labelHeader' htmlFor="group">Pozition</label></div>
-                <div>
+              </div> */}
+{/* BACKEND */}
+                {/* <div>
                   <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
                     checked={!!values?.pozition?.includes("Back-end")} />
                   <label htmlFor="Back-end">Back-End</label>
@@ -91,31 +153,35 @@ function NewForm() {
                 <div>
                   <input id='Game' type="checkbox" name='pozition' value="Game" onChange={handleChange("pozition")} disabled={isSubmitting} checked={!!values?.pozition?.includes("Game")} />
                   <label htmlFor="Game">Game</label>
+                </div> */}
+              {/* SCHOOL */}               {/* DEPARTMENT */}
+              <div className='schoDep' style={{ display: "flex" }}>
+                <div>
+                  <label className='labelHeader' style={{ display: "flex", marginBottom: "-1rem", fontSize: "1.1rem", fontWeight: "700", width: "17rem" }} htmlFor="school">School</label>
+                  <br />
+                  <select className='form-control' name="school" id="school" value={values.school} onChange={handleChange("school")} disabled={isSubmitting}>
+                    <option value="not specified">-</option>
+                    <option value="IstanbulAydinUniversity">Istanbul Aydin University</option>
+                    <option value="GalatasarayUniversity">Galatasaray University</option>
+                    <option value="IstanbulTehcnicalUniversity">Istanbul Technical University</option>
+                    <option value="NamikKemalUniversity">Namik Kemal University</option>
+                    <option value="BahcesehirUniversity">Bahcesehir University</option>
+                  </select>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "end", marginLeft: "auto" }}>
+                  <label className='labelHeader' style={{ display: "flex", marginBottom: "-1rem", fontSize: "1.1rem", fontWeight: "700", width: "17rem" }} htmlFor="department">Department</label>
+                  <br />
+                  <select className='form-control' name="department" id="department" value={values.department} onChange={handleChange("department")} disabled={isSubmitting}>
+                    <option value="not specified">-</option>
+                    <option value="SoftwareEngineering">Software Engineering</option>
+                    <option value="ComputerEngineering">Computer Engineering</option>
+                    <option value="InformationTechnology">Information Technology</option>
+                    <option value="SoftwareDeveloper">Software Developer</option>
+                  </select>
                 </div>
               </div>
-              {/* SCHOOL */}
-              <div>
-                <div><label className='labelHeader' htmlFor="school">School</label></div>
-                <div><select className='form-control'  name="school" id="school" value={values.school} onChange={handleChange("school")} disabled={isSubmitting}>
-                  <option className='schoolOption' value="not specified">-</option>
-                  <option className='schoolOption' value="IstanbulAydinUniversity">Istanbul Aydin University</option>
-                  <option className='schoolOption' value="IstanbulTechnicalUniversity">Istanbul Technical University</option>
-                  <option className='schoolOption' value="GalatasarayUniversity">Galatasaray University</option>
-                  <option className='schoolOption' value="NamikKemalUniversity">Namik Kemal University</option>
-                  <option className='schoolOption' value="BahcesehirUniversity">Bahcesehir University</option>
-                </select></div>
-              </div>
-              {/* DEPARTMENT */}
-              <div>
-                <div><label className='labelHeader' htmlFor="department">Department</label></div>
-                <div><select className='form-control' name="department" id="department" onChange={handleChange("department")} value={values.department} disabled={isSubmitting}>
-                  <option value="not specified">-</option>
-                  <option value="SoftwareEngineering">Software Engineering</option>
-                  <option value="ComputerEngineering">Computer Engineering</option>
-                  <option value="SoftwareDeveloper">Software Developer</option>
-                  <option value="InformationTechnology">Information Technology</option>
-                </select></div>
-              </div>
+
+
               {/* SALARY */}
               <div>
                 <div><label className='labelHeader' htmlFor="salary">Salary</label></div>
@@ -127,6 +193,8 @@ function NewForm() {
                   <option value="+ 22.000 TL">+22.000 TL</option>
                 </select></div>
               </div>
+
+
               {/* CHALLENGES */}
               <div>
                 <div><label className='labelHeader' htmlFor="challenges">Challenges</label></div>
@@ -142,16 +210,16 @@ function NewForm() {
               </div>
               {/* CHALLENGES COMMENT */}
               <div>
-                <div><label className='labelHeader' htmlFor="comments">Comments About Challenges<span style={{color:"tomato"}}>({values.challenges})</span></label></div>
-                <div><textarea name="comments" id="comments" onChange={handleChange("comments")} value={values.comments} disabled={isSubmitting} placeholder="Any Challenge..."></textarea></div>
+                <div><label className='labelHeader' htmlFor="comments">Comments About Challenges</label></div>
+                <div><textarea style={{ width: "100%", height: "10vh", resize: "none", padding: ".2rem" }} name="comments" id="comments" onChange={handleChange("comments")} value={values.comments} disabled={isSubmitting} placeholder="Any Challenge..."></textarea></div>
               </div>
               {/* HELP */}
               <div>
                 <div><label className='labelHeader' htmlFor="help">Would you like to get help with this? How?</label></div>
-                <div><textarea  name="help" id="help" onChange={handleChange("help")} value={values.help} disabled={isSubmitting} placeholder="Yes, I need help..."></textarea></div>
+                <div><textarea style={{ width: "100%", height: "10vh", resize: "none", padding: ".2rem" }} name="help" id="help" onChange={handleChange("help")} value={values.help} disabled={isSubmitting} placeholder="Yes, I need help..."></textarea></div>
               </div>
               {/* BUTTONS */}
-              <div>
+              <div style={{ marginTop: "1.5rem", marginBottom: "1.5rem" }}>
                 <button type='submit'>Send Form</button>
                 <button type='reset'>Rest Form</button>
                 <button type='button' className='btn btn-danger'>Click</button>
