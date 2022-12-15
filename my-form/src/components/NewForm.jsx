@@ -14,11 +14,9 @@ function NewForm() {
       email: "",
       birthOfDate: "",
       pozition: [],
-      // position: [], 
       school: "",
       department: "",
-      // salary: "",
-      debtAmount: "",
+      salary: "",
       challenges: "",
       comments: "",
       help: "",
@@ -32,7 +30,8 @@ function NewForm() {
     }
   })
   return (
-    <div className='container'>
+    <div style={{backGroundColor: "white"}}>
+      <div  className='container'>
       <div className='row'>
         <div>
           <div>
@@ -52,11 +51,11 @@ function NewForm() {
               <div id='genderChoose'>
                 <div><label className='labelHeader' htmlFor="gender">Gender</label></div>
                 <div>
-                  <input id='male' type="radio" name='gender' value="male" onChange={handleChange("gender")} checked={values.gender === "male"} />
-                  <label htmlFor="male">Male</label>
+                  <input id='male' type="radio" name='gender' value="male" onChange={handleChange("gender")} checked={values.gender === "male"} disabled={isSubmitting}/>
+                  <label style={{width: "7rem"}} htmlFor="male">Male</label>
 
-                  <input id='female' type="radio" name='gender' value="female" onChange={handleChange("gender")} checked={values.gender === "female"} />
-                  <label htmlFor="female">Female</label>
+                  <input id='female' type="radio" name='gender' value="female" onChange={handleChange("gender")} checked={values.gender === "female"} disabled={isSubmitting}/>
+                  <label style={{width: "7rem"}} htmlFor="female">Female</label>
                 </div>
               </div>
               {/* EMAIL */}
@@ -68,42 +67,54 @@ function NewForm() {
               <div style={{display: "flex"}}>
                 <div className='labelHeader' style={{display: "flex", flexDirection:"column"}}>
                   <label htmlFor="">Date</label>
-                  <input id='dateIt' type="date" />
+                  <input id='birthOfDate' type="date" onChange={handleChange("birthOfDate")} value={values.birthOfDate} disabled={isSubmitting}/>
                 </div>
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginLeft: "auto", marginRight: "1.5rem"}}>
                   <label className='labelHeader' htmlFor="">Pozition</label>
                   <div>
-                  <div>
+                  <div style={{justifyContent:"space-between"}}>
                     
+
+
                   <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
                     checked={!!values?.pozition?.includes("Back-end")} />
-                  <label htmlFor="Back-end">Back-End</label>
+                  <label style={{marginRight:"1rem"}} htmlFor="Back-end">Back-End</label>
                   
-                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
-                    checked={!!values?.pozition?.includes("Back-end")} />
-                  <label htmlFor="Back-end">Back-End</label>
+
+
+                  <input id='Front-end' type="checkbox" name='pozition' value="Front-end" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Front-end")} />
+                  <label style={{marginRight:"1rem"}} htmlFor="Front-end">Front-End</label>
                   
+
+
                   
-                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
-                    checked={!!values?.pozition?.includes("Back-end")} />
-                  <label htmlFor="Back-end">Back-End</label>
+                  <input id='Data' type="checkbox" name='pozition' value="Data" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Data")} />
+                  <label htmlFor="Data">Data</label>
                   </div>
                   
                   
-                  <div>
-                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
-                    checked={!!values?.pozition?.includes("Back-end")} />
-                  <label htmlFor="Back-end">Back-End</label>
+
+
+                  <div style={{justifyContent:"space-between"}}>
+                  <input id='Game' type="checkbox" name='pozition' value="Game" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Game")} />
+                  <label style={{marginRight:"1rem"}} htmlFor="Game">Game</label>
                   
                   
-                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
-                    checked={!!values?.pozition?.includes("Back-end")} />
-                  <label htmlFor="Back-end">Back-End</label>
+
+
+                  <input id='Mobile' type="checkbox" name='pozition' value="Mobile" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Mobile")} />
+                  <label style={{marginRight:"1rem"}} htmlFor="Mobile">Mobile</label>
                   
                   
-                  <input id='Back-end' type="checkbox" name='pozition' value="Back-end" onChange={handleChange("pozition")} disabled={isSubmitting}
-                    checked={!!values?.pozition?.includes("Back-end")} />
-                  <label htmlFor="Back-end">Back-End</label>
+
+
+                  <input id='Others' type="checkbox" name='pozition' value="Others" onChange={handleChange("pozition")} disabled={isSubmitting}
+                    checked={!!values?.pozition?.includes("Others")} />
+                  <label htmlFor="Others">Others ...</label>
 
 
                   </div>
@@ -185,7 +196,8 @@ function NewForm() {
               {/* SALARY */}
               <div>
                 <div><label className='labelHeader' htmlFor="salary">Salary</label></div>
-                <div><select className='form-control' name="salary" id="salary" onChange={handleChange("salary")} value={values.salary} disabled={isSubmitting}>
+                <div>
+                  <select className='form-control' name="salary" id="salary" onChange={handleChange("salary")} value={values.salary} disabled={isSubmitting}>
                   <option value="not specified">-</option>
                   <option value="6.000-10.000 TL">6.000-10.000 TL</option>
                   <option value="10.000-15.000 TL">10.000-15.000 TL</option>
@@ -220,14 +232,19 @@ function NewForm() {
               </div>
               {/* BUTTONS */}
               <div style={{ marginTop: "1.5rem", marginBottom: "1.5rem" }}>
-                <button type='submit'>Send Form</button>
-                <button type='reset'>Rest Form</button>
-                <button type='button' className='btn btn-danger'>Click</button>
+              
+              
+              <div id='submitReset'>
+              <button type='submit' className='btn btn-success'><strong>Submit</strong></button>
+              <button type='reset' className='btn btn-danger'><strong>Reset</strong></button>
+              </div>
+
               </div>
             </form>
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }
