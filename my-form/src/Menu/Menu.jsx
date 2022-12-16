@@ -7,21 +7,21 @@ function Menu() {
         <div>
             <nav>
                 <ul className='navLinks'>
-                    <div>
+                    {/* <div> */}
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-                    </div>
-                    <div>
+                    {/* </div> */}
+                    {/* <div> */}
                         <li>
                             <Link to="/newform">Form</Link>
                         </li>
-                    </div>
-                    <div>
+                    {/* </div> */}
+                    {/* <div> */}
                         <li>
                             <Link to="/aboutme">About Me</Link>
                         </li>
-                    </div>
+                    {/* </div> */}
                 </ul>
             </nav>
         </div>
