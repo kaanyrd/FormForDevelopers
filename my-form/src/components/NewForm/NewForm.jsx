@@ -71,7 +71,7 @@ function NewForm() {
               <div style={{display: "flex"}}>
                 <div className='labelHeader' style={{display: "flex", flexDirection:"column"}}>
                   <label htmlFor="">Date</label>
-                  <input id='birthOfDate' type="date" onChange={handleChange("birthOfDate")} value={values.birthOfDate} disabled={isSubmitting} required/>
+                  <input style={{textAlign: "center"}} id='birthOfDate' type="date" onChange={handleChange("birthOfDate")} value={values.birthOfDate} disabled={isSubmitting} required/>
                 </div>
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginLeft: "auto", marginRight: "1.5rem"}}>
                   <label className='labelHeader' htmlFor="">Pozition</label>

@@ -100,6 +100,7 @@ margin-top: 1.1rem;
     background-color: #0961B8;
     border-radius: 10px;
     transition: .5s ease-in-out;
+    box-shadow: 10px 15px black ;
 }
 #linkedIn:hover{
     /* border: 10px solid white; */
@@ -111,11 +112,12 @@ margin-top: 1.1rem;
 
 #gitHub{
     color: white;
-    border: 10px solid #131419;
+    border: 10px solid #595e72;
     padding: .7rem;
-    background-color: #131419;
+    background-color: #595e72;
     border-radius: 10px;
     transition: .5s ease-in-out;
+    box-shadow: 10px 15px black ;
 }
 
 #gitHub:hover{

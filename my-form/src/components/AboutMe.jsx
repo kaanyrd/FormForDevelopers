@@ -4,8 +4,7 @@ import React from 'react'
 
 function AboutMe() {
   return (
-    <div classNameName='container'>
-      <div classNameName='row'>
+      <div>
         <div className='aboutMe'>
           <div id='denedik' className="jumbotron col-sm-6">
             <h1 className="display-4"><strong><em>Hello, world!</em></strong></h1>
@@ -34,7 +33,6 @@ function AboutMe() {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 
