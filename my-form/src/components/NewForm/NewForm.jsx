@@ -178,8 +178,8 @@ function NewForm() {
                     <option value="not specified">-</option>
                     <option value="IstanbulAydinUniversity">Istanbul Aydin University</option>
                     <option value="GalatasarayUniversity">Galatasaray University</option>
-                    <option value="IstanbulTehcnicalUniversity">Istanbul Technical University</option>
-                    <option value="NamikKemalUniversity">Namik Kemal University</option>
+                    <option value="IstanbulIsikUniversity">Istanbul Isik University</option>
+                    <option value="OkanUniveristy">Okan University</option>
                     <option value="BahcesehirUniversity">Bahcesehir University</option>
                   </select>
                 </div>
@@ -190,7 +190,7 @@ function NewForm() {
                     <option value="not specified">-</option>
                     <option value="SoftwareEngineering">Software Engineering</option>
                     <option value="ComputerEngineering">Computer Engineering</option>
-                    <option value="InformationTechnology">Information Technology</option>
+                    <option value="InformationSecurityTechnology">Information Security Technology</option>
                     <option value="SoftwareDeveloper">Software Developer</option>
                   </select>
                 </div>

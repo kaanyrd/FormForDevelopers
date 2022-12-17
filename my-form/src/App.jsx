@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from './components/Home';
 import NewForm from './components/NewForm/NewForm';
 import AboutMe from './components/AboutMe';
@@ -11,18 +11,20 @@ function App() {
     <div className="App" id='element'>
 
       <BrowserRouter>
-      <Menu />
-      {/* <hr /> */}
-      <br />
+        <Menu />
+        {/* <hr /> */}
+        <br />
         <Routes>
-          <Route index element={<Home />}/>
-          <Route path='/newform' element={<NewForm />}/>
-          <Route path='aboutme' element={<AboutMe/>}/>
-          <Route path='*' element={<Error/>}/>
+          <Route>
+            <Route index element={<Home />} />
+            <Route path='/newform' element={<NewForm />} />
+            <Route path='aboutme' element={<AboutMe />} />
+          </Route>
+            <Route path='*' element={<Error />} />
         </Routes>
       </BrowserRouter>
 
-      
+
     </div>
   );
 }
