@@ -16,7 +16,8 @@ body {
 background-color: rgb(251, 235, 232);
 padding-left: 4rem;
 padding-right: 4rem;
-border: 1px solid black;
+max-width: fit-content;
+border: 1px solid #999999;
 border-radius: 10px;
 margin-bottom: 2rem;
 }
@@ -86,4 +87,39 @@ margin-top: 1.1rem;
 #denedik{
     background-color: transparent;
     left: 25%;
+}
+
+#errorSide{
+    -o-transition-property: 1s;
+}
+
+#linkedIn{
+    color: white;
+    border: 10px solid #0961B8;
+    padding: .7rem;
+    background-color: #0961B8;
+    border-radius: 10px;
+    transition: .5s ease-in-out;
+}
+#linkedIn:hover{
+    /* border: 10px solid white; */
+    background-color: white;
+    border: 10px solid #0961B8;
+    color: #0961B8;
+}
+
+
+#gitHub{
+    color: white;
+    border: 10px solid #131419;
+    padding: .7rem;
+    background-color: #131419;
+    border-radius: 10px;
+    transition: .5s ease-in-out;
+}
+
+#gitHub:hover{
+    color: #131419;
+    background-color: white;
+    border-color: #131419;
 }

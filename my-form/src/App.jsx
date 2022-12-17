@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from './components/Home';
-import NewForm from './components/NewForm';
+import NewForm from './components/NewForm/NewForm';
 import AboutMe from './components/AboutMe';
 import Error from "./components/Error"
 import Menu from './Menu/Menu';
@@ -12,7 +12,8 @@ function App() {
 
       <BrowserRouter>
       <Menu />
-      <hr />
+      {/* <hr /> */}
+      <br />
         <Routes>
           <Route index element={<Home />}/>
           <Route path='/newform' element={<NewForm />}/>

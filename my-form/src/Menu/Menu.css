@@ -7,8 +7,27 @@
     margin: 0 auto;
     list-style-type: none;
 }
-.navLinks,li{
-    /* margin-right: 1rem; */
-    /* column-gap: 1rem; */
+.underline:hover{
+text-decoration: none; 
 }
-/* TOP NAVLINKS CSS STYLE ENDING */
+
+.menuNav{
+    color: red;
+    border: 1px solid black;
+
+}
+.menuNav:hover{
+    text-decoration: none;
+}
+
+.noUnderline{
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 700;
+}
+
+
+
+.noUnderline:hover{
+    text-decoration: none;
+}

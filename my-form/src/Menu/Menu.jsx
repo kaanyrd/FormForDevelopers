@@ -1,25 +1,34 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import "./Menu.css"
 
 function Menu() {
+
+    let activeStyle = {
+        textDecoration: "none",
+        borderBottom: "4px solid tomato",
+        borderRadius: "10px",
+        borderWidth: ".3rem",
+        // borderBottomStyle: "dashed",
+      };
+
     return (
         <div>
             <nav>
                 <ul className='navLinks'>
                     {/* <div> */}
-                        <li>
-                            <Link to="/">Home</Link>
+                        <li className="underline">
+                            <NavLink className="noUnderline" style={({isActive}) => isActive ? activeStyle : undefined} to="/">Home</NavLink>
                         </li>
                     {/* </div> */}
                     {/* <div> */}
                         <li>
-                            <Link to="/newform">Form</Link>
+                            <NavLink className="noUnderline" style={({isActive}) => isActive ? activeStyle : undefined}  to="/newform">Form</NavLink>
                         </li>
                     {/* </div> */}
                     {/* <div> */}
                         <li>
-                            <Link to="/aboutme">About Me</Link>
+                            <NavLink className="noUnderline" style={({isActive}) => isActive ? activeStyle : undefined}  to="/aboutme">About Me</NavLink>
                         </li>
                     {/* </div> */}
                 </ul>

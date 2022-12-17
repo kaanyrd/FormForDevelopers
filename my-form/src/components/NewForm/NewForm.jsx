@@ -1,12 +1,13 @@
 import React from 'react'
 import { useFormik } from "formik"
-import "./Components.css"
+import "../Components.css"
+import validationSchema from './Validations/Validations'
 
 
 
 function NewForm() {
 
-  const { handleChange, handleSubmit, handleReset, values, isSubmitting } = useFormik({
+  const { handleChange, handleSubmit, handleReset, handleBlur, values, isSubmitting, errors, touched } = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
@@ -18,7 +19,7 @@ function NewForm() {
       department: "",
       salary: "",
       challenges: "",
-      comments: "",
+      challengeComment: "",
       help: "",
 
     },
@@ -27,7 +28,8 @@ function NewForm() {
       console.log(values);
       // console.log(bag);
       bag.resetForm();
-    }
+    },
+    validationSchema
   })
   return (
     <div style={{backGroundColor: "white"}}>
@@ -39,13 +41,15 @@ function NewForm() {
 
               {/* NAME */}
               <div>
-                <div><label className='labelHeader' htmlFor="firstName">Name</label></div>
-                <div><input size="70" placeholder='Please write your first name...' className='form-control' value={values.firstName} id="firstName" name="firstName" onChange={handleChange("firstName")} disabled={isSubmitting} /></div>
+                <div><label className='labelHeader' htmlFor="firstName">*Name{errors.firstName && touched.firstName && <div style={{marginLeft: ".5rem", color: "red", fontWeight: "lighter"}} id='errorSide'><em>({ errors.firstName})</em></div>}
+</label></div>
+                <div><input size="70" placeholder='Please write your first name...' className='form-control' value={values.firstName} id="firstName" name="firstName" onChange={handleChange("firstName")} disabled={isSubmitting} onBlur={handleBlur("firstName")}/></div>
+                <br />                
               </div>
               {/* LASTNAME */}
               <div>
-                <div><label className='labelHeader' htmlFor="lastName">Last Name</label></div>
-                <div><input placeholder='Please write your last name...' className='form-control' value={values.lastName} id="lastName" name="lastName" onChange={handleChange("lastName")} disabled={isSubmitting} /></div>
+                <div><label className='labelHeader' htmlFor="lastName">*Last Name{errors.lastName && touched.lastName && <div style={{marginLeft: ".5rem", color: "red", fontWeight: "lighter"}} id='errorSide'><em>({ errors.lastName})</em></div>}</label></div>
+                <div><input placeholder='Please write your last name...' className='form-control' value={values.lastName} id="lastName" name="lastName" onChange={handleChange("lastName")} disabled={isSubmitting} onBlur={handleBlur("lastName")}/></div>
               </div>
               {/* GENDER */}
               <div id='genderChoose'>
@@ -60,14 +64,14 @@ function NewForm() {
               </div>
               {/* EMAIL */}
               <div>
-                <div><label className='labelHeader' htmlFor="email">E-mail</label></div>
-                <div><input placeholder='test@test.com' className='form-control' value={values.email} id="email" name="email" onChange={handleChange("email")} disabled={isSubmitting} /></div>
+                <div><label className='labelHeader' htmlFor="email">*E-mail{errors.email && touched.email && <div style={{marginLeft: ".5rem", color: "red", fontWeight: "lighter"}} id='errorSide'><em>({ errors.email})</em></div>}</label></div>
+                <div><input placeholder='test@test.com' className='form-control' value={values.email} id="email" name="email" onChange={handleChange("email")} disabled={isSubmitting} onBlur={handleBlur("email")}/></div>
               </div>
 
               <div style={{display: "flex"}}>
                 <div className='labelHeader' style={{display: "flex", flexDirection:"column"}}>
                   <label htmlFor="">Date</label>
-                  <input id='birthOfDate' type="date" onChange={handleChange("birthOfDate")} value={values.birthOfDate} disabled={isSubmitting}/>
+                  <input id='birthOfDate' type="date" onChange={handleChange("birthOfDate")} value={values.birthOfDate} disabled={isSubmitting} required/>
                 </div>
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginLeft: "auto", marginRight: "1.5rem"}}>
                   <label className='labelHeader' htmlFor="">Pozition</label>
@@ -168,9 +172,9 @@ function NewForm() {
               {/* SCHOOL */}               {/* DEPARTMENT */}
               <div className='schoDep' style={{ display: "flex" }}>
                 <div>
-                  <label className='labelHeader' style={{ display: "flex", marginBottom: "-1rem", fontSize: "1.1rem", fontWeight: "700", width: "17rem" }} htmlFor="school">School</label>
+                  <label className='labelHeader' style={{ display: "flex", marginBottom: "-1rem", fontSize: "1.1rem", fontWeight: "700", width: "17rem" }} htmlFor="school">University</label>
                   <br />
-                  <select className='form-control' name="school" id="school" value={values.school} onChange={handleChange("school")} disabled={isSubmitting}>
+                  <select required className='form-control' name="school" id="school" value={values.school} onChange={handleChange("school")} disabled={isSubmitting}>
                     <option value="not specified">-</option>
                     <option value="IstanbulAydinUniversity">Istanbul Aydin University</option>
                     <option value="GalatasarayUniversity">Galatasaray University</option>
@@ -195,7 +199,7 @@ function NewForm() {
 
               {/* SALARY */}
               <div>
-                <div><label className='labelHeader' htmlFor="salary">Salary</label></div>
+                <div><label className='labelHeader' htmlFor="salary">Salary Expectation</label></div>
                 <div>
                   <select className='form-control' name="salary" id="salary" onChange={handleChange("salary")} value={values.salary} disabled={isSubmitting}>
                   <option value="not specified">-</option>
@@ -220,15 +224,15 @@ function NewForm() {
                   <option value="Other">Other...</option>
                 </select></div>
               </div>
-              {/* CHALLENGES COMMENT */}
+              {/* CHALLENGES challengeComment */}
               <div>
-                <div><label className='labelHeader' htmlFor="comments">Comments About Challenges</label></div>
-                <div><textarea style={{ width: "100%", height: "10vh", resize: "none", padding: ".2rem" }} name="comments" id="comments" onChange={handleChange("comments")} value={values.comments} disabled={isSubmitting} placeholder="Any Challenge..."></textarea></div>
+                <div><label className='labelHeader' htmlFor="challengeComment">*Comment About Challenges{errors.challengeComment && touched.challengeComment && <div style={{marginLeft: ".5rem", color: "red", fontWeight: "lighter"}} id='errorSide'><em>({ errors.challengeComment})</em></div>}</label></div>
+                <div><textarea style={{ width: "100%", height: "10vh", resize: "none", padding: ".2rem" }} name="challengeComment" id="challengeComment" onChange={handleChange("challengeComment")} onBlur={handleBlur("challengeComment")} placeholder={values.challenges && values.challenges} value={values.challengeComment} disabled={isSubmitting}></textarea></div>
               </div>
               {/* HELP */}
               <div>
-                <div><label className='labelHeader' htmlFor="help">Would you like to get help with this? How?</label></div>
-                <div><textarea style={{ width: "100%", height: "10vh", resize: "none", padding: ".2rem" }} name="help" id="help" onChange={handleChange("help")} value={values.help} disabled={isSubmitting} placeholder="Yes, I need help..."></textarea></div>
+                <div><label className='labelHeader' htmlFor="help">*Would you like to get help with this? How?{errors.help && touched.help && <div style={{marginLeft: ".5rem", color: "red", fontWeight: "lighter"}} id='errorSide'><em>({ errors.help})</em></div>}</label></div>
+                <div><textarea style={{ width: "100%", height: "10vh", resize: "none", padding: ".2rem" }} name="help" id="help" onChange={handleChange("help")} value={values.help} disabled={isSubmitting} onBlur={handleBlur("help")} placeholder="I need help..."></textarea></div>
               </div>
               {/* BUTTONS */}
               <div style={{ marginTop: "1.5rem", marginBottom: "1.5rem" }}>
